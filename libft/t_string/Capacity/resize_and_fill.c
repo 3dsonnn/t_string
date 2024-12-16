@@ -12,20 +12,31 @@
 
 #include "../t_string.h"
 
+static	int	resize_and_fill_aux(t_string *str, size_t n, char c)
+{
+	if (n == 0)
+	{
+		str->clear(str);
+		return (1);
+	}
+	else if (!str->buffer)
+	{
+		str->buffer = (char *)ft_calloc(n + 1, sizeof(char));
+		ft_memset(str->buffer, c, n);
+		str->buffer[n + 1] = '\0';
+		return (1);
+	}
+	return (0);
+}
+
 void	resize_and_fill(t_string *str, size_t n, char c)
 {
 	size_t	len;
 
 	if (!str || (long long)n < 0 || (str->buffer && str->len(str) == n))
 		return ;
-	if (n == 0)
-		str->clear(str);
-	else if (!str->buffer)
-	{
-		str->buffer = (char *)ft_calloc(n + 1, sizeof(char));
-		ft_memset(str->buffer, c, n);
-		str->buffer[n + 1] = '\0';
-	}
+	if (resize_and_fill_aux(str, n, c))
+		return ;
 	else
 	{
 		len = str->len(str);
