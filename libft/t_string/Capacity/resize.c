@@ -36,4 +36,5 @@ void	resize(t_string *str, size_t n)
 			ft_strfree(&str->tmp);
 		}
 	}
+	str->tmp = NULL;
 }

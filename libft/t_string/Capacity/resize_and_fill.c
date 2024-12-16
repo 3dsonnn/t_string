@@ -41,4 +41,5 @@ void	resize_and_fill(t_string *str, size_t n, char c)
 			ft_strfree(&str->tmp);
 		}
 	}
+	str->tmp = NULL;
 }
