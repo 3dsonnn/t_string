@@ -1,3 +1,4 @@
+c
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -59,7 +60,7 @@ static	void	constructor_1(t_string *str)
 
 void	constructor(t_string *str, char *content)
 {
-	if (!str || !content)
+	if (!str)
 		return ;
 	str->buffer = content;
 	str->tmp = NULL;
