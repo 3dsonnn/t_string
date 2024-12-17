@@ -136,6 +136,7 @@ int				ft_strnfill(char *dest, char *src, int n);
 int				ft_countstr_mtx(char **matrix, char *str);
 void			ft_mtxfree(char ***matrix);
 void			ft_strfree(char **str);
+char			*ft_ctoa(char c);
 char			*ft_strcpy(char *dest, char *src);
 char			**ft_mtxdup(char **matrix);
 char			**ft_addstr_mtx(char ***matrix, char **tmp, char *str);
