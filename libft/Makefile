@@ -89,6 +89,7 @@ SRC = 	ctype/ft_isalnum.c		\
 	extras/ft_strcspn.c		\
 	extras/ft_atoll.c		\
 	extras/ft_getpid.c		\
+	extras/ft_ctoa.c		\
 	t_string/Capacity/clear.c		\
 	t_string/Capacity/empty.c		\
 	t_string/Capacity/len.c			\
