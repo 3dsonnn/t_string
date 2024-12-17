@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/14 19:39:20 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/17 14:34:23 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ struct s_string
 {
 	char	*tmp;
 	char	*buffer;
-	//	Start
+	//	Start_End
 	void	(*constructor)(t_string *str, char *content);
 	void	(*destructor)(t_string *str);
 	//	Iterators
@@ -61,9 +61,9 @@ struct s_string
 		size_t	(*find_last_not_of_range)(t_string s, char *str, size_t pos, size_t count); //	count is the number of char to consider from str
 		char	*(*substr)(t_string s, size_t pos, size_t len);
 	//	Modifiers
-	void	(*swap)(t_string *s, t_string *swap);
-	void	(*push_back)(t_string *s, char c);
-	void	(*pop_back)(t_string *s, char c);
+	void	(*swap)(t_string *str, t_string *swap);
+	void	(*push_back)(t_string *str, char c);
+	void	(*pop_back)(t_string *str, char c);
 		//	APPEND'S
 		void	(*append)(t_string *s, char *str);
 		void	(*append_substr)(t_string *s, char *str, size_t start, size_t len);
