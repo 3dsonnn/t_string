@@ -70,7 +70,7 @@ void	constructor(t_string *str, char *content)
 	str->len = &len;
 	str->max = &max;
 	str->resize = &resize;
-	str->resize_and_fill = &resize_and_fill;
+	str->resize_fill = &resize_fill;
 	str->clear = &clear;
 	str->empty = &empty;
 	str->at = &at;

@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/17 14:34:23 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/18 01:25:57 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ struct s_string
 	size_t	(*len)(t_string *str);
 	void	(*clear)(t_string *str);
 	void	(*resize)(t_string *str, size_t n);
-	void	(*resize_and_fill)(t_string *str, size_t n, char c);
+	void	(*resize_fill)(t_string *str, size_t n, char c);
 	int	(*empty)(t_string *str);
 	size_t	(*max)(t_string *str);
 	//	Element	Access
@@ -64,12 +64,13 @@ struct s_string
 	void	(*swap)(t_string *str, t_string *swap);
 	void	(*push_back)(t_string *str, char c);
 	void	(*pop_back)(t_string *str, char c);
-		//	APPEND'S
-		void	(*append)(t_string *s, char *str);
-		void	(*append_substr)(t_string *s, char *str, size_t start, size_t len);
-		void	(*append_n)(t_string *s, char *str, size_t len);
-		void	(*append_fill)(t_string *s, int n, char c);
-		void	(*append_range)(t_string *s, int start, int end);
+		//	APPEND
+		void	(*append)(t_string *str, t_string *s);
+		void	(*append_sub)(t_string *str, t_string *s, size_t subpos, size_t sublen);
+		void	(*append_str)(t_string *str, char *s);
+		void	(*append_buffer)(t_string *str, char *s, size_t n);
+		void	(*append_fill)(t_string *str, size_t n, char c);
+		void	(*append_range)(t_string *str, t_string *s, size_t first, size_t last);
 		//	ASSIGN'S
 		void	(*assign)(t_string *s, char *str);
 		void	(*assign_substr)(t_string *s, char *str, size_t start, size_t len);
@@ -95,21 +96,36 @@ struct s_string
 		void	(*replace_range)(t_string *s, size_t pos, size_t r_len, char *str, size_t len); // replace r_len chars of *str (starting at pos) by len chars of str
 };
 
+//	Start_End
 void	destructor(t_string *str);
 void	constructor(t_string *str, char *content);
 
+//	Iterators
 int	begin(t_string *str);
 size_t	end(t_string *str);
 
+//	Capacity
 size_t	len(t_string *str);
 void	clear(t_string *str);
 void	resize(t_string *str, size_t n);
-void	resize_and_fill(t_string *str, size_t n, char c);
+void	resize_fill(t_string *str, size_t n, char c);
 int	empty(t_string *str);
 size_t	max(t_string *str);
 
+//	Elemet_Access
 char	front(t_string *str);
 char	at(t_string *str, size_t pos);
 char	back(t_string *str);
+
+//	Modifiers
+void    push_back(t_string *str, char c);
+void    pop_back(t_string *str, char c);
+void    swap(t_string *str, t_string *swap);
+void    append(t_string *str, t_string *s);
+void	append_sub(t_string *str, t_string *s, size_t subpos, size_t sublen);
+void	append_str(t_string *str, char *s);
+void	append_buffer(t_string *str, char *s, size_t n);
+void	append_fill(t_string *str, size_t n, char c);
+void	append_range(t_string *str, t_string *s, size_t first, size_t last);
 
 #endif
