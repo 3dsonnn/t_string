@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 01:00:15 by efinda            #+#    #+#             */
-/*   Updated: 2024/05/22 01:00:19 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/17 20:17:30 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= (unsigned int)s_len)
-		return (ft_strdup(""));
+		return (NULL);
 	if (len > (s_len - start))
 		len = s_len - start;
 	res = (char *)malloc(sizeof(char) * (len + 1));
