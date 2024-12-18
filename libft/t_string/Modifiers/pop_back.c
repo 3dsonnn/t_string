@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_back.c                                        :+:      :+:    :+:   */
+/*   pop_back.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 13:34:06 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/18 01:34:35 by efinda           ###   ########.fr       */
+/*   Created: 2024/12/17 15:50:49 by efinda            #+#    #+#             */
+/*   Updated: 2024/12/17 16:02:58 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../t_string.h"
 
-void    push_back(t_string *str, char c)
+void    pop_back(t_string *str, char c)
 {
-    if (!str || c == '\0')
+    if (!str || !str->buffer || str->empty(str) || c == '\0')
         return ;
-    if (!str->buffer)
-        str->buffer = ft_ctoa(c);
     else
-        str->append_fill(str, 1, c);
+        str->buffer[str->end(str)] = c;
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_back.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 13:34:06 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/18 01:34:35 by efinda           ###   ########.fr       */
+/*   Created: 2024/12/17 15:30:56 by efinda            #+#    #+#             */
+/*   Updated: 2024/12/17 15:39:24 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../t_string.h"
 
-void    push_back(t_string *str, char c)
+void    swap(t_string *str, t_string *swap)
 {
-    if (!str || c == '\0')
+    t_string    *tmp;
+
+    if (!str || !swap)
         return ;
-    if (!str->buffer)
-        str->buffer = ft_ctoa(c);
-    else
-        str->append_fill(str, 1, c);
+    tmp = str;
+    str = swap;
+    swap = tmp;    
 }
