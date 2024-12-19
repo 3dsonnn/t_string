@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/19 19:26:24 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 23:03:40 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ struct s_string
 		void	(*insert_char)(t_string *s, size_t pos, char c);
 		void	(*insert_range)(t_string *s, size_t pos, char *str, int start, int end);	// inserts chars of str starting on it from start to end
 		//	ERASE'S
-		void	(*erase)(t_string *s, size_t pos, size_t len);
-		void	(*erase_char)(t_string *s,char c);
-		void	(*erase_range)(t_string *s, int start, int end);
+		void	(*erase)(t_string *str, size_t pos, size_t len);
+		void	(*erase_char)(t_string *str, size_t pos);
+		void	(*erase_range)(t_string *str, size_t first, size_t last);
 		//	REPLACE'S
 		void	(*replace)(t_string *s, size_t pos, size_t r_len, char *str);
 		void	(*replace_substr)(t_string *s, size_t pos, size_t r_len, char *str, size_t start, size_t len);
@@ -135,5 +135,8 @@ void	append_str(t_string *str, char *s);
 void	append_buffer(t_string *str, char *s, size_t n);
 void	append_fill(t_string *str, size_t n, char c);
 void	append_range(t_string *str, t_string *s, size_t first, size_t last);
+void	erase(t_string *str, size_t pos, size_t len);
+void	erase_char(t_string *str, size_t pos);
+void	erase_range(t_string *str, size_t first, size_t last);
 
 #endif
