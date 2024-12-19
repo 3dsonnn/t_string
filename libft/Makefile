@@ -6,7 +6,7 @@
 #    By: efinda <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 19:18:41 by efinda            #+#    #+#              #
-#    Updated: 2024/12/17 22:33:08 by efinda           ###   ########.fr        #
+#    Updated: 2024/12/19 18:08:38 by efinda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,6 +103,15 @@ SRC = 	ctype/ft_isalnum.c						\
 		t_string/Iterators/end.c				\
 		t_string/Start_End/constructor.c		\
 		t_string/Start_End/destructor.c			\
+		t_string/String_Operations/c_str.c		\
+		t_string/String_Operations/find.c		\
+		t_string/String_Operations/find_pos.c	\
+		t_string/String_Operations/find_n.c		\
+		t_string/String_Operations/find_char.c	\
+		t_string/String_Operations/c_str.c		\
+		t_string/String_Operations/c_str.c		\
+
+		
 		t_string/Modifiers/push_back.c			\
 		t_string/Modifiers/pop_back.c			\
 		t_string/Modifiers/swap.c				\

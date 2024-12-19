@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/18 01:25:57 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 18:10:35 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ struct s_string
 	char	(*at)(t_string *str, size_t pos);
 	char	(*back)(t_string *str);
 	//	String Operations
-	int	(*copy)(t_string s, size_t pos, char *str, size_t len);
+	char	*(*c_str)(t_string *str);
 		//	FIND'S
-		size_t	(*find)(t_string s, char *str);
-		size_t	(*find_n)(t_string s, char *str, size_t pos, size_t count); //	count is the number of char to consider from str
-		size_t	(*find_char)(t_string s, char c);
-		size_t	(*rfind)(t_string s, char *str);	// finds the last occurence of str
+		size_t	(*find)(t_string *str, char *s);
+		size_t	(*find_pos)(t_string *str, char *s, size_t pos);
+		size_t	(*find_n)(t_string *str, char *s, size_t pos, size_t n);
+		size_t	(*find_char)(t_string *str, char c, size_t pos);
+		size_t	(*rfind)(t_string *str, char *s);	// finds the last occurence of str
 		size_t	(*rfind_char)(t_string s, char c);
 		size_t	(*rfind_n)(t_string s, char *str, size_t pos, size_t count);
 		size_t	(*find_first_not_of)(t_string s, char *str);
@@ -116,6 +117,13 @@ size_t	max(t_string *str);
 char	front(t_string *str);
 char	at(t_string *str, size_t pos);
 char	back(t_string *str);
+
+//	String_Operations
+char    *c_str(t_string *str);
+size_t	find(t_string *str, char *s);
+size_t	find_pos(t_string *str, char *s, size_t pos);
+size_t	find_n(t_string *str, char *s, size_t pos, size_t n);
+size_t	find_char(t_string *str, char c, size_t pos);
 
 //	Modifiers
 void    push_back(t_string *str, char c);
