@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 00:49:43 by efinda            #+#    #+#             */
-/*   Updated: 2024/05/22 00:49:49 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 17:32:19 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	size_t	j;
 
 	i = 0;
-	if (!big || little[i] == '\0')
-		return ((char *)big);
+	if (!big || *big == '\0' || !little || *little == '\0'
+		|| ft_strlen(little) > ft_strlen(big) || n < 0 || n > ft_strlen(big))
+		return (NULL);
 	while (big[i] && i < n)
 	{
 		if (big[i] == little[0])
