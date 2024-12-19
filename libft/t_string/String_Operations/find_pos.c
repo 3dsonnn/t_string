@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:24:18 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/19 16:56:31 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 19:27:30 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	find_pos(t_string *str, char *s, size_t pos)
 {
     size_t  i;
 
-    if (!str || !str->buffer || str->empty(str) || !s || *s == '\0' || pos < 0 || pos >= str->len(str))
+    if (!str || !str->buffer || str->empty(str) || !s || *s == '\0' || pos >= str->len(str))
         return (NOPOS);
     while (str->buffer[pos])
     {

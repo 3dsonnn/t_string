@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 22:13:22 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/17 22:57:09 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 19:29:55 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	append_range(t_string *str, t_string *s, size_t first, size_t last)
 {
-    if (!str || !s || !s->buffer || s->empty(s) || first < 0 || first >= s->len(s) || last < 0)
+    if (!str || !s || !s->buffer || s->empty(s) || first >= s->len(s))
         return ;
     if (last >= s->len(s))
         last = s->len(s) - 1;
@@ -27,7 +27,7 @@ void	append_range(t_string *str, t_string *s, size_t first, size_t last)
     else
     {
         str->buffer = ft_strjoin_free(str->buffer, s->tmp);
-        ft_strfree(s->tmp);
+        ft_strfree(&s->tmp);
     }
     s->tmp = NULL;
 }

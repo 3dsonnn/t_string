@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 07:11:36 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/17 21:42:41 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 19:48:21 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	str.constructor(&str, ft_strdup(av[1]));
 
 	str.resize(&str, n);
-	resize_fill(&str, n, c);
+	str.resize_fill(&str, n, c);
 	
 	printf("The str became '%s', and it has %ld chars\n", str.buffer, str.len(&str));
 	str.clear(&str);

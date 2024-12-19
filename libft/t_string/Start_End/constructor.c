@@ -1,4 +1,3 @@
-c
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,11 +6,12 @@ c
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 20:47:33 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/14 20:47:34 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/19 19:52:33 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../t_string.h"
+
 /*
 static	void	constructor_2(t_string *str)
 {
@@ -62,26 +62,27 @@ void	constructor(t_string *str, char *content)
 {
 	if (!str)
 		return ;
-	str->buffer = content;
 	str->tmp = NULL;
+	str->buffer = content;
 	str->destructor = &destructor;
 	str->begin = &begin;
 	str->end = &end;
 	str->len = &len;
-	str->max = &max;
+	str->clear = &clear;
 	str->resize = &resize;
 	str->resize_fill = &resize_fill;
-	str->clear = &clear;
 	str->empty = &empty;
+	str->max = &max;
+	str->front = &front;
 	str->at = &at;
 	str->back = &back;
-	str->front = &front;
-/*	str->copy = &copy;
+	str->c_str = &c_str;
 	str->find = &find;
+	str->find_pos = &find_pos;
 	str->find_n = &find_n;
 	str->find_char = &find_char;
-	str->rfind = &rfind;
+/*	str->rfind = &rfind;
 	str->rfind_char = &rfind_char;
 	str->rfind_n = &rfind_n;
-*/	//constructor_1(str);
+	constructor_1(str);*/
 }
