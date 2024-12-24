@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_string.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/19 23:03:40 by efinda           ###   ########.fr       */
+/*   Updated: 2024/12/24 20:41:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,12 @@ struct s_string
 		void	(*append_fill)(t_string *str, size_t n, char c);
 		void	(*append_range)(t_string *str, t_string *s, size_t first, size_t last);
 		//	ASSIGN'S
-		void	(*assign)(t_string *s, char *str);
-		void	(*assign_substr)(t_string *s, char *str, size_t start, size_t len);
-		void	(*assign_n)(t_string *s, char *str, size_t len);
-		void	(*assign_fill)(t_string *s, int n, char c);
-		void	(*assign_range)(t_string *s, int start, int end);
+		void	(*assign)(t_string *str, t_string *s);
+		void	(*assign_sub)(t_string *str, t_string *s, size_t subpos, size_t sublen);
+		void	(*assign_str)(t_string *str, char *s);
+		void	(*assign_buffer)(t_string *str, char *s, size_t n);
+		void	(*assign_fill)(t_string *str, size_t n, char c);
+		void	(*assign_range)(t_string *str, t_string *s, size_t first, size_t last);
 		//	INSERT'S
 		void	(*insert)(t_string *s, size_t pos, char *str);
 		void	(*insert_substr)(t_string *s, size_t pos, char *str, size_t start, size_t len);
@@ -135,6 +136,12 @@ void	append_str(t_string *str, char *s);
 void	append_buffer(t_string *str, char *s, size_t n);
 void	append_fill(t_string *str, size_t n, char c);
 void	append_range(t_string *str, t_string *s, size_t first, size_t last);
+void	assign(t_string *str, t_string *s);
+void	assign_sub(t_string *str, t_string *s, size_t subpos, size_t sublen);
+void	assign_str(t_string *str, char *s);
+void	assign_buffer(t_string *str, char *s, size_t n);
+void	assign_fill(t_string *str, size_t n, char c);
+void	assign_range(t_string *str, t_string *s, size_t first, size_t last);
 void	erase(t_string *str, size_t pos, size_t len);
 void	erase_char(t_string *str, size_t pos);
 void	erase_range(t_string *str, size_t first, size_t last);
