@@ -6,7 +6,7 @@
 #    By: efinda <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 19:18:41 by efinda            #+#    #+#              #
-#    Updated: 2024/12/19 23:01:53 by efinda           ###   ########.fr        #
+#    Updated: 2024/12/20 10:59:27 by efinda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,6 +117,12 @@ SRC = 	ctype/ft_isalnum.c						\
 		t_string/Modifiers/append_buffer.c		\
 		t_string/Modifiers/append_fill.c		\
 		t_string/Modifiers/append_range.c		\
+		t_string/Modifiers/assign.c				\
+		t_string/Modifiers/assign_sub.c			\
+		t_string/Modifiers/assign_str.c			\
+		t_string/Modifiers/assign_buffer.c		\
+		t_string/Modifiers/assign_fill.c		\
+		t_string/Modifiers/assign_range.c		\
 		t_string/Modifiers/erase.c				\
 		t_string/Modifiers/erase_char.c			\
 		t_string/Modifiers/erase_range.c		\
