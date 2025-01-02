@@ -6,20 +6,20 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 00:40:48 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/19 19:18:48 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/02 13:05:16 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
-	size_t	i;
+	char	*start;
 
-	i = 0;
-	if (!str || *str == '\0')
-		return (i);
-	while (str[i])
-		i++;
-	return (i);
+	start = str;
+	if (!str || !*str)
+		return (0);
+	while (str && *str)
+		str++;
+	return (str - start);
 }
