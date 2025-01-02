@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 01:00:15 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/17 20:17:30 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/02 00:47:25 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
-	if (start >= (unsigned int)s_len)
+	if (start >= (unsigned int)s_len || len == 0)
 		return (NULL);
 	if (len > (s_len - start))
 		len = s_len - start;
