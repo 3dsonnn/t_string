@@ -12,7 +12,7 @@
 
 #include "../t_string.h"
 
-int	begin(t_string *str)
+size_t	begin(t_string *str)
 {
 	if (!str || !str->buffer || str->empty(str))
 		return (NOPOS);

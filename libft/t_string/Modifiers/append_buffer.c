@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:22:35 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/17 21:37:32 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/02 12:51:37 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	append_buffer(t_string *str, char *s, size_t n)
 {
     size_t len;
 
-    len = ft_strlen(s);    
-    if (!str || !s || len == 0 || n <= 0)
+    len = ft_strlen(s);
+    if (!str || len == 0 || n <= 0)
         return ;
     if (n > len)
         n = len;
