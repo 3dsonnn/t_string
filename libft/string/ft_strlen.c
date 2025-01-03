@@ -6,15 +6,15 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 00:40:48 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/02 13:05:16 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/03 04:14:43 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	char	*start;
+	const char	*start;
 
 	start = str;
 	if (!str || !*str)
