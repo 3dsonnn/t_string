@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/02 13:14:22 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/02 18:25:09 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,12 @@ struct s_string
 		void	(*erase_char)(t_string *str, size_t pos);
 		void	(*erase_range)(t_string *str, size_t first, size_t last);
 		//	REPLACE'S
-		void	(*replace)(t_string *s, size_t pos, size_t r_len, char *str);
-		void	(*replace_substr)(t_string *s, size_t pos, size_t r_len, char *str, size_t start, size_t len);
-		void	(*replace_n)(t_string *s, size_t pos, size_t r_len, char *str);	// replace r_len chars of *str (starting at pos) by str
-		void	(*replace_fill)(t_string *s, size_t pos, size_t r_len, int n, char c);
-		void	(*replace_range)(t_string *s, size_t pos, size_t r_len, char *str, size_t len); // replace r_len chars of *str (starting at pos) by len chars of str
+		void	(*replace)(t_string *str, t_string *s, size_t pos, size_t len);
+		void	(*replace_sub)(t_string *str, t_string *s, size_t pos, size_t len, size_t subpos, size_t sublen);
+		void	(*replace_str)(t_string *str, char *s, size_t pos, size_t len);
+		void	(*replace_buffer)(t_string *str, char *s, size_t pos, size_t len, size_t n);
+		void	(*replace_fill)(t_string *str, size_t pos, size_t len, size_t n, char c);
+		void	(*replace_range)(t_string *str, t_string *s, size_t first, size_t last, size_t s_first, size_t s_last);
 };
 
 //	Start_End
@@ -156,5 +157,12 @@ void	insert_range(t_string *str, t_string *s, size_t first, size_t last, size_t 
 void	erase(t_string *str, size_t pos, size_t len);
 void	erase_char(t_string *str, size_t pos);
 void	erase_range(t_string *str, size_t first, size_t last);
+	//	REPLACE
+void	replace(t_string *str, t_string *s, size_t pos, size_t len);
+void	replace_sub(t_string *str, t_string *s, size_t pos, size_t len, size_t subpos, size_t sublen);
+void	replace_str(t_string *str, char *s, size_t pos, size_t len);
+void	replace_buffer(t_string *str, char *s, size_t pos, size_t len, size_t n);
+void	replace_fill(t_string *str, size_t pos, size_t len, size_t n, char c);
+void	replace_range(t_string *str, t_string *s, size_t first, size_t last, size_t s_first, size_t s_last);
 
 #endif
