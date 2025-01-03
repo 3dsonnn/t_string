@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 07:11:36 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/01 19:18:48 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/03 04:23:49 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,44 @@ void	insert_test(char **av)
 	s.destructor(&s);
 }
 
+void	replace_test(char **av)
+{
+	t_string	str;
+	t_string	s;
+	size_t	pos = ft_atoi(av[3]);
+	size_t	len = ft_atoi(av[4]);
+	
+	printf("The args inputed are: \"%s\"\t\"%s\"\t%ld\t%ld\n", av[1], av[2], pos, len);
+
+	str.constructor = &constructor;
+	str.constructor(&str, ft_strdup(av[1]));
+	s.constructor = &constructor;
+	s.constructor(&s, ft_strdup(av[2]));
+
+	str.replace(&str, &s, pos, len);
+	
+	printf("After the replacement, str became \"%s\"\n", str.buffer);
+	str.destructor(&str);
+	s.destructor(&s);
+}
+
 int	main(int ac, char **av)
 {
-	if (ac != 5)
+	if (ac != 5 && ac != 6)
 	{
-		printf("Input 4 args:\n\toption\n\t\t0 - resize_test\n\t\t1 - insert_test\nFor option 0: str, n, and c\nFor option 1: str, s and pos\n");
+		printf("Input 4 or 5 args:\n\toption\n\t\t0 - resize_test\n\t\t1 - insert_test\n\t\t2 - replace_test\nFor option 0: str, n, and c\nFor option 1: str, s and pos\nFor option 2: str, s and pos and len\n");
 		return (1);
 	}
-	if (strcmp(av[1], "0") && strcmp(av[1], "1"))
+	if (strcmp(av[1], "0") && strcmp(av[1], "1") && strcmp(av[1], "2"))
 	{
 		printf("\"%s\" is an invalid option. Choose between 0 for resize_test and 1 for insert_test\n", av[1]);
 		return (1);
 	}
-	if (*av[1] == '0')
+	if (ac == 5 && *av[1] == '0')
 		resize_test(&av[1]);
-	else
+	else if (ac == 5 && *av[1] == '1')
 		insert_test(&av[1]);
+	else if (ac == 6 && *av[1] == '2')
+		replace_test(&av[1]);
 	return (0);
 }
