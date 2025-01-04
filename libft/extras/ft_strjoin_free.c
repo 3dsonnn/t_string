@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 08:03:21 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/17 19:39:59 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/04 21:54:58 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin_free(char *str, char *buffer)
 
 	if (!str && buffer)
 		return (ft_strdup(buffer));
-	if (!buffer && str)
+	if (str && !buffer)
 		return (str);
 	if (!str && !buffer)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 20:47:33 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/02 16:39:53 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/03 04:16:14 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	constructor(t_string *str, char *content)
 	str->find_pos = &find_pos;
 	str->find_n = &find_n;
 	str->find_char = &find_char;
+	str->replace = &replace;
 /*	str->rfind = &rfind;
 	str->rfind_char = &rfind_char;
 	str->rfind_n = &rfind_n;

@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/02 18:25:09 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/03 05:20:52 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # define NOCHR	26
 
 typedef	struct s_string t_string;
+
+typedef struct s_sub
+{
+	t_string	*s;
+	size_t		subpos;
+	size_t		sublen;
+}	t_sub;
 
 struct s_string
 {
@@ -157,7 +164,7 @@ void	insert_range(t_string *str, t_string *s, size_t first, size_t last, size_t 
 void	erase(t_string *str, size_t pos, size_t len);
 void	erase_char(t_string *str, size_t pos);
 void	erase_range(t_string *str, size_t first, size_t last);
-	//	REPLACE
+		//	REPLACE
 void	replace(t_string *str, t_string *s, size_t pos, size_t len);
 void	replace_sub(t_string *str, t_string *s, size_t pos, size_t len, size_t subpos, size_t sublen);
 void	replace_str(t_string *str, char *s, size_t pos, size_t len);
