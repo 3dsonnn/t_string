@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.c                                          :+:      :+:    :+:   */
+/*   replace_buffer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 18:12:05 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/03 23:14:02 by efinda           ###   ########.fr       */
+/*   Created: 2025/01/03 05:44:28 by efinda            #+#    #+#             */
+/*   Updated: 2025/01/04 21:55:40 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../t_string.h"
 
-void	replace(t_string *str, t_string *s, size_t pos, size_t len)
+void	replace_buffer(t_string *str, char *s, size_t pos, size_t len, size_t n)
 {
-    if (!str || !s || (str->len(str) == 0 && s->len(s) == 0) || (str->len(str) == 0 && (pos != 0 || len != 0)) || (str->len(str) > 0 && pos > str->len(str)))
+    char    *aux;
+    size_t  s_len;
+
+    s_len = ft_strlen(s);
+    if (!str || (str->len(str) == 0 && (s_len == 0 || pos != 0 || len != 0)) || (str->len(str) > 0 && pos > str->len(str)))
         return ;
+    if (n > s_len)
+        n = s_len;
     if (str->len(str) > 0 && len > str->len(str) - pos)
         len = str->len(str) - pos;
+    str->tmp = ft_strndup(s, n);
     if (str->len(str) == 0)
     {
         ft_strfree(&str->buffer);
-        str->buffer = ft_strdup(s->buffer);
+        str->buffer = str->tmp;
+        str->tmp = NULL;
     }
     else
     {
-        if (!s->buffer)
-            s->tmp = ft_strdup("");
-        else
-            s->tmp = ft_strdup(s->buffer);
-        str->tmp = ft_strjoin_free(ft_strndup(str->buffer, pos), s->tmp);
-        str->tmp = ft_strjoin_free(str->tmp, str->buffer + pos + len);
+        aux = ft_strjoin_free(ft_strndup(str->buffer, pos), str->tmp);
+        aux = ft_strjoin_free(aux, str->buffer + pos);
         ft_strfree(&str->buffer);
-        str->buffer = str->tmp;
-        ft_strfree(&s->tmp);
-        str->tmp = NULL;
+        str->buffer = aux;
+        ft_strfree(&str->tmp);
     }
 }
