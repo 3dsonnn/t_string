@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   len.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 20:48:12 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/14 20:48:13 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:10:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ size_t	len(t_string *str)
 	size_t	i;
 
 	i = 0;
-	if (!str || !str->buffer)
+	if (!str)
 		return (NOPOS);
+	if (!str->buffer || !*str->buffer)
+		return (i);
 	while (str->buffer[i])
 		i++;
 	return (i);
