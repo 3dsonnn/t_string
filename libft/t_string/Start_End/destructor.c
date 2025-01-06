@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destructor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 20:47:50 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/14 20:47:51 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:08:26 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	destructor(t_string *str)
 {
-	if (!str || !str->buffer)
+	if (!str)
 		return ;
 	ft_strfree(&str->buffer);
 	ft_strfree(&str->tmp);
