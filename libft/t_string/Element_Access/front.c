@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   front.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 20:35:03 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/15 20:35:04 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:42:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	front(t_string *str)
 {
-	if (!str || !str->buffer || str->empty(str))
+	if (!str || !str->buffer || !*str->buffer)
 		return (NOCHR);
-	return (str->buffer[str->begin(str)]);
+	return (*str->buffer);
 }

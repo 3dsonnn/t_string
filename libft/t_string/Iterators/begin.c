@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   begin.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 20:47:39 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/14 20:47:40 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 17:38:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	begin(t_string *str)
 {
-	if (!str || !str->buffer || str->empty(str))
+	if (!str || !str->buffer || !*str->buffer)
 		return (NOPOS);
 	return (0);
 }
