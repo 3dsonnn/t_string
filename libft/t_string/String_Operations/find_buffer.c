@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_n.c                                           :+:      :+:    :+:   */
+/*   find_buffer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:34:49 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/19 19:27:55 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 16:31:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../t_string.h"
 
-size_t	find_n(t_string *str, char *s, size_t pos, size_t n)
+size_t	find_buffer(t_string *str, char *s, size_t pos, size_t n)
 {
 	size_t i;
 
 	if (!str || !str->buffer || str->empty(str) || !s || *s == '\0'
-		|| pos >= str->len(str) || n <= 0 || n > ft_strlen(s) || str->len(str)
-		- pos < n)
+		|| pos >= str->len(str) || n > ft_strlen(str->buffer + pos))
 		return (NOPOS);
+	if (n > ft_strlen(s))
+		n = ft_strlen(s);
 	while (str->buffer[pos])
 	{
 		if (str->buffer[pos] == *s)

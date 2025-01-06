@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_string.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/03 05:20:52 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 16:50:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,6 @@ struct s_string
 	char	(*front)(t_string *str);
 	char	(*at)(t_string *str, size_t pos);
 	char	(*back)(t_string *str);
-	//	String Operations
-	char	*(*c_str)(t_string *str);
-		//	FIND'S
-		size_t	(*find)(t_string *str, char *s);
-		size_t	(*find_pos)(t_string *str, char *s, size_t pos);
-		size_t	(*find_n)(t_string *str, char *s, size_t pos, size_t n);
-		size_t	(*find_char)(t_string *str, char c, size_t pos);
-		size_t	(*rfind)(t_string *str, char *s);	// finds the last occurence of str
-		size_t	(*rfind_char)(t_string s, char c);
-		size_t	(*rfind_n)(t_string s, char *str, size_t pos, size_t count);
-		size_t	(*find_first_not_of)(t_string s, char *str);
-		size_t	(*find_first_not_of_n)(t_string s, size_t pos, char *str);
-		size_t	(*find_first_not_of_char)(t_string s, char c);
-		size_t	(*find_first_not_of_range)(t_string s, char *str, size_t pos, size_t count);
-		size_t	(*find_last_not_of)(t_string s, char *str);
-		size_t	(*find_last_not_of_n)(t_string s, size_t pos, char *str);
-		size_t	(*find_last_not_of_char)(t_string s, char c);
-		size_t	(*find_last_not_of_range)(t_string s, char *str, size_t pos, size_t count); //	count is the number of char to consider from str
-		char	*(*substr)(t_string s, size_t pos, size_t len);
 	//	Modifiers
 	void	(*swap)(t_string *str, t_string *swap);
 	void	(*push_back)(t_string *str, char c);
@@ -104,11 +85,30 @@ struct s_string
 		void	(*replace_buffer)(t_string *str, char *s, size_t pos, size_t len, size_t n);
 		void	(*replace_fill)(t_string *str, size_t pos, size_t len, size_t n, char c);
 		void	(*replace_range)(t_string *str, t_string *s, size_t first, size_t last, size_t s_first, size_t s_last);
+	//	String Operations
+	char	*(*c_str)(t_string *str);
+		//	FIND'S
+		size_t	(*find)(t_string *str, t_string *s);
+		size_t	(*find_pos)(t_string *str, char *s, size_t pos);
+		size_t	(*find_buffer)(t_string *str, char *s, size_t pos, size_t n);
+		size_t	(*find_char)(t_string *str, char c, size_t pos);
+		size_t	(*rfind)(t_string *str, char *s);	// finds the last occurence of str
+		size_t	(*rfind_char)(t_string s, char c);
+		size_t	(*rfind_n)(t_string s, char *str, size_t pos, size_t count);
+		size_t	(*find_first_not_of)(t_string s, char *str);
+		size_t	(*find_first_not_of_n)(t_string s, size_t pos, char *str);
+		size_t	(*find_first_not_of_char)(t_string s, char c);
+		size_t	(*find_first_not_of_range)(t_string s, char *str, size_t pos, size_t count);
+		size_t	(*find_last_not_of)(t_string s, char *str);
+		size_t	(*find_last_not_of_n)(t_string s, size_t pos, char *str);
+		size_t	(*find_last_not_of_char)(t_string s, char c);
+		size_t	(*find_last_not_of_range)(t_string s, char *str, size_t pos, size_t count); //	count is the number of char to consider from str
+		char	*(*substr)(t_string s, size_t pos, size_t len);
 };
 
 //	Start_End
-void	destructor(t_string *str);
 void	constructor(t_string *str, char *content);
+void	destructor(t_string *str);
 
 //	Iterators
 size_t	begin(t_string *str);
@@ -126,13 +126,6 @@ size_t	max(t_string *str);
 char	front(t_string *str);
 char	at(t_string *str, size_t pos);
 char	back(t_string *str);
-
-//	String_Operations
-char    *c_str(t_string *str);
-size_t	find(t_string *str, char *s);
-size_t	find_pos(t_string *str, char *s, size_t pos);
-size_t	find_n(t_string *str, char *s, size_t pos, size_t n);
-size_t	find_char(t_string *str, char c, size_t pos);
 
 //	Modifiers
 void    push_back(t_string *str, char c);
@@ -171,5 +164,12 @@ void	replace_str(t_string *str, char *s, size_t pos, size_t len);
 void	replace_buffer(t_string *str, char *s, size_t pos, size_t len, size_t n);
 void	replace_fill(t_string *str, size_t pos, size_t len, size_t n, char c);
 void	replace_range(t_string *str, t_string *s, size_t first, size_t last, size_t s_first, size_t s_last);
+
+//	String_Operations
+char    *c_str(t_string *str);
+size_t  find(t_string *str, t_string *s);
+size_t	find_pos(t_string *str, char *s, size_t pos);
+size_t	find_buffer(t_string *str, char *s, size_t pos, size_t n);
+size_t	find_char(t_string *str, char c, size_t pos);
 
 #endif

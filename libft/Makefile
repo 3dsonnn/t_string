@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: efinda <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 19:18:41 by efinda            #+#    #+#              #
-#    Updated: 2025/01/03 04:32:13 by efinda           ###   ########.fr        #
+#    Updated: 2025/01/06 16:43:32 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,10 @@ SRC = 	ctype/ft_isalnum.c						\
 		extras/ft_atoll.c						\
 		extras/ft_getpid.c						\
 		extras/ft_ctoa.c						\
+		t_string/Start_End/constructor.c		\
+		t_string/Start_End/destructor.c			\
+		t_string/Iterators/begin.c				\
+		t_string/Iterators/end.c				\
 		t_string/Capacity/clear.c				\
 		t_string/Capacity/empty.c				\
 		t_string/Capacity/len.c					\
@@ -99,15 +103,6 @@ SRC = 	ctype/ft_isalnum.c						\
 		t_string/Element_Access/at.c			\
 		t_string/Element_Access/back.c			\
 		t_string/Element_Access/front.c			\
-		t_string/Iterators/begin.c				\
-		t_string/Iterators/end.c				\
-		t_string/Start_End/constructor.c		\
-		t_string/Start_End/destructor.c			\
-		t_string/String_Operations/c_str.c		\
-		t_string/String_Operations/find.c		\
-		t_string/String_Operations/find_pos.c	\
-		t_string/String_Operations/find_n.c		\
-		t_string/String_Operations/find_char.c	\
 		t_string/Modifiers/push_back.c			\
 		t_string/Modifiers/pop_back.c			\
 		t_string/Modifiers/swap.c				\
@@ -138,6 +133,11 @@ SRC = 	ctype/ft_isalnum.c						\
 		t_string/Modifiers/erase.c				\
 		t_string/Modifiers/erase_char.c			\
 		t_string/Modifiers/erase_range.c		\
+		t_string/String_Operations/c_str.c		\
+		t_string/String_Operations/find.c		\
+		t_string/String_Operations/find_pos.c	\
+		t_string/String_Operations/find_buffer.c\
+		t_string/String_Operations/find_char.c	\
 
 CC = cc
 FLAGS = -Wall -Wextra -Werror
