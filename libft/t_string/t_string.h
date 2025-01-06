@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:39:19 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/06 16:50:31 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/06 19:20:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ struct s_string
 	//	Modifiers
 	void	(*swap)(t_string *str, t_string *swap);
 	void	(*push_back)(t_string *str, char c);
-	void	(*pop_back)(t_string *str, char c);
+	void	(*pop_back)(t_string *str);
 		//	APPEND
 		void	(*append)(t_string *str, t_string *s);
 		void	(*append_sub)(t_string *str, t_string *s, size_t subpos, size_t sublen);
@@ -129,7 +129,7 @@ char	back(t_string *str);
 
 //	Modifiers
 void    push_back(t_string *str, char c);
-void    pop_back(t_string *str, char c);
+void    pop_back(t_string *str);
 void    swap(t_string *str, t_string *swap);
 		//	APPEND
 void    append(t_string *str, t_string *s);
