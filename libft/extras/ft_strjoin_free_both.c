@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_free_both.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:56:50 by efinda            #+#    #+#             */
-/*   Updated: 2024/11/30 14:56:52 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/06 18:36:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ char	*ft_strjoin_free_both(char *str, char *buffer)
 	int		lstr;
 	int		lbuffer;
 
-	if (!str)
-	{
-		str = (char *)malloc(sizeof(char) * 1);
-		str[0] = '\0';
-	}
-	if (!str || !buffer)
+	if (!str && !buffer)
 		return (NULL);
+	if (!str && buffer)
+		return (ft_strdup(buffer));
+	if (str && !buffer)
+		return (ft_strdup(str));
 	lstr = ft_strlen(str);
 	lbuffer = ft_strlen(buffer);
 	new_str = (char *)malloc(sizeof(char) * (lstr + lbuffer + 1));
