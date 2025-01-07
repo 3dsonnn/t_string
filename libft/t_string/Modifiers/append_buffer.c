@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   append_buffer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:22:35 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/02 12:51:37 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/07 14:04:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ void	append_buffer(t_string *str, char *s, size_t n)
     size_t len;
 
     len = ft_strlen(s);
-    if (!str || len == 0 || n <= 0)
+    if (!str || (long long)len <= 0 || (long long)n <= 0)
         return ;
     if (n > len)
         n = len;
     str->tmp = ft_strndup(s, n);
-    if (!str->buffer)
+    if (!str->buffer || !*str->buffer)
     {
+        ft_strfree(&str->buffer);
         str->buffer = str->tmp;
         str->tmp = NULL;
     }

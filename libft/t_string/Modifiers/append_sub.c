@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:58:44 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/24 21:09:09 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/07 13:59:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	append_sub(t_string *str, t_string *s, size_t subpos, size_t sublen)
 {
-    if (!str || !s || !s->buffer || s->empty(s) || subpos >= s->len(s) || sublen == 0)
+    if (!str || !s || !s->buffer || s->empty(s) || (long long)subpos < 0 || subpos >= s->len(s) || (long long)sublen <= 0)
         return ;
     s->tmp = ft_substr(s->buffer, subpos, sublen);
-    if (!str->buffer)
+    if (!str->buffer || !*str->buffer)
     {
+        ft_strfree(&str->buffer);
         str->buffer = s->tmp;
         s->tmp = NULL;
     }
