@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:37:33 by codespace         #+#    #+#             */
-/*   Updated: 2025/01/01 18:19:41 by efinda           ###   ########.fr       */
+/*   Updated: 2025/01/07 15:06:06 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	insert(t_string *str, t_string *s, size_t pos)
 {
-    if (!s || !s->buffer || s->empty(s) || !str || (!str->buffer && pos != 0) || (str->buffer && pos > str->len(str)))
+    if (!s || !s->buffer || !*s->buffer || !str || (long long)pos < 0 || ((!str->buffer || !*str->buffer) && pos != 0) || (str->buffer && pos > str->len(str)))
         return ;
-    if (!str->buffer)
+    if (!str->buffer || !*str->buffer)
     {
+        ft_strfree(&str->buffer);
         str->buffer = ft_strdup(s->buffer);
         return ;
     }
