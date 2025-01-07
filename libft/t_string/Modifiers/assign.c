@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 11:00:02 by efinda            #+#    #+#             */
-/*   Updated: 2024/12/24 19:50:08 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/07 14:42:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@ void    assign(t_string *str, t_string *s)
 {
     if (!str || !s)
         return ;
-    if (!str->buffer)
-        str->buffer = s->buffer;
-    else
-    {
+    if (str->buffer)
         ft_strfree(&str->buffer);
-        str->buffer = s->buffer;
-    }
+    str->buffer = ft_strdup(s->buffer);
 }
